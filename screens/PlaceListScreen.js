@@ -1,15 +1,29 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 
 import { useSelector } from 'react-redux'
 
-const PlaceListScreen = () => {
+import PlaceItem from '../components/PlaceItem'
+
+const PlaceListScreen = ({ navigation }) => {
     const places = useSelector(state => state.places.places)
-    console.log(places)
+    // console.log(places)
+
+    const renderItem = (data) => (
+        <PlaceItem
+            title={data.item.title}
+            image={data.item.image}
+            address={"No address"}
+            onSelect={() => navigation.navigate('Detalle')}
+        />
+    )
+
     return (
-        <View style={styles.container}>
-            <Text>Direcciones</Text>
-        </View>
+        <FlatList
+            data={places}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+        />
     )
 }
 
