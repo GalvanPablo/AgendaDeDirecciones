@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 
 import * as Location from 'expo-location'
+import MapPreview from './MapPreview'
 
 const LocationService = ({ onLocation }) => {
 
@@ -33,13 +34,9 @@ const LocationService = ({ onLocation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.preview}>
-                {location ? (
-                <Text> {location.lat} , {location.lng}</Text>
-                ) : (
+            <MapPreview location={location} mapStyle={styles.preview}>
                 <Text> Esperando ubicación... </Text>
-                )}
-            </View>
+            </MapPreview>
             <Button title='Obtener Location' onPress={getLocation}/>
         </View>
     )
