@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { addPlace } from '../store/places.actions'
 
 import ImageSelector from '../components/ImageSelector'
+import LocationService from '../components/LocationService'
 
 const NewPlaceScreen = ({ navigation }) => {
 
@@ -32,6 +33,7 @@ const NewPlaceScreen = ({ navigation }) => {
                     onChangeText={handleTitleChange}
                 />
                 <ImageSelector onImage={image => setImage(image)} />
+                <LocationService onLocation={(lat, lng) => console.log(lat, lng)} />
                 <Button
                     title="Guardar Dirección"
                     color={COLORS.MAROON}
