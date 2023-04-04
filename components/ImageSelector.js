@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, Button } from 'react-native'
 
 import * as ImagePicker from 'expo-image-picker'
-
-import { Button } from 'react-native-elements'
 
 const ImageSelector = ({ onImage }) => {
 
