@@ -10,11 +10,14 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_PLACE:
-            const newPlace = new Place(new Date(), action.payload.title, action.payload.image)
-            // console.log(newPlace)
-            // console.log(state.places.concat(newPlace))
+            const newPlace = new Place(
+                Date.now(),
+                action.payload.title,
+                action.payload.image,
+                action.payload.address,
+                action.payload.location
+            )
             return {
-                // ...state,
                 places: state.places.concat(newPlace)
             }
         default:
