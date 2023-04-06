@@ -14,7 +14,7 @@ const PlaceListScreen = ({ navigation }) => {
             title={data.item.title}
             image={data.item.image}
             address={data.item.address}
-            onSelect={() => navigation.navigate('Detalle')}
+            onSelect={() => navigation.navigate('Detalle', {placeId: data.item.id})}
         />
     )
 
