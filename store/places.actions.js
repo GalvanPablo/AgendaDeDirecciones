@@ -31,6 +31,7 @@ export const addPlace = (title, image, location) => {
             dispatch({
                 type: ADD_PLACE,
                 payload: {
+                    id: result.insertId,
                     title,
                     image: Path,
                     address,
