@@ -33,8 +33,6 @@ const LocationService = ({ onLocation }) => {
             lng: location.coords.longitude
         })
         onLocation(location.coords.latitude, location.coords.longitude)
-
-        console.log(location)
     }
 
     const pickOnMap = async () => {

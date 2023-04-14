@@ -23,9 +23,7 @@ const MapScreen = ({ navigation }) => {
     }
     
     const handleSave = () => {
-        // console.log('Guardando ubicación...')
         if(selectedLocation){
-            // console.log('Ubicación guardada')
             navigation.navigate('Nuevo', { mapLocation: selectedLocation })
         }
     }
@@ -51,7 +49,6 @@ const MapScreen = ({ navigation }) => {
                 <Marker
                     title='Ubicación Seleccionada'
                     coordinate={{ latitude: selectedLocation.lat, longitude: selectedLocation.lng }}
-                    // onPress={()=>{console.log('Marker pressed')}}
                 />
             }
         </MapView>
