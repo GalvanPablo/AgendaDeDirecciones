@@ -1,10 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { deletePlace } from '../store/places.actions'
 
 import MapPreview from '../components/MapPreview'
+import { Button } from 'react-native-elements/dist/buttons/Button'
 
-const PlaceDetailScreen = ({ route }) => {
+const PlaceDetailScreen = ({ navigation, route }) => {
+    const dispatch = useDispatch()
 
     const { placeId } = route.params
     const place = useSelector(state => state.places.places.find(place => place.id === placeId))
@@ -21,6 +25,11 @@ const PlaceDetailScreen = ({ route }) => {
                     <Text>No se pudo cargar el mapa</Text>
                 </MapPreview>
             </View>
+
+            <Button title='Eliminar Lugar' buttonStyle={styles.btnDelete}  onPress={()=> {
+                navigation.goBack()
+                dispatch(deletePlace(place.id))
+            }}/>
 
         </ScrollView>
     )
@@ -45,6 +54,10 @@ const styles = StyleSheet.create({
         width: '95%',
         height: 200,
         backgroundColor: 'red'
+    },
+    btnDelete: {
+        marginVertical: 10,
+        backgroundColor: '#d00'
     }
 })
 
